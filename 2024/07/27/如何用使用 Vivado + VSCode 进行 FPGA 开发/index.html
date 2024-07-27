@@ -19,22 +19,24 @@
   <meta name="author" content="忱无 / morningmist">
   <meta name="keywords" content="FPGA C Python">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="如何用使用 Vivado + VSCode 进行 FPGA 开发1. 安装 Vivado 和 VSCode过程略。 2. 将 VSCode 设置为 Vivado 的默认代码编辑器。打开 Vivado，进入 Settings 页面。 ![image-20240719211431395](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&amp;#x2F">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://morningmist42672.github.io/2024/07/22/hello-world/index.html">
+<meta property="og:title" content="如何用使用 Vivado + VSCode 进行 FPGA 开发">
+<meta property="og:url" content="https://morningmist42672.github.io/2024/07/27/%E5%A6%82%E4%BD%95%E7%94%A8%E4%BD%BF%E7%94%A8%20Vivado%20+%20VSCode%20%E8%BF%9B%E8%A1%8C%20FPGA%20%E5%BC%80%E5%8F%91/index.html">
 <meta property="og:site_name" content="闲尘悟语">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="如何用使用 Vivado + VSCode 进行 FPGA 开发1. 安装 Vivado 和 VSCode过程略。 2. 将 VSCode 设置为 Vivado 的默认代码编辑器。打开 Vivado，进入 Settings 页面。 ![image-20240719211431395](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&amp;#x2F">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-22T09:50:13.139Z">
-<meta property="article:modified_time" content="2024-07-22T09:50:13.139Z">
+<meta property="article:published_time" content="2024-07-27T03:28:25.000Z">
+<meta property="article:modified_time" content="2024-07-27T03:49:43.593Z">
 <meta property="article:author" content="忱无 &#x2F; morningmist">
-<meta property="article:tag" content="FPGA C Python">
+<meta property="article:tag" content="Vivado">
+<meta property="article:tag" content="FPGA">
+<meta property="article:tag" content="VSCode">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Hello World - 闲尘悟语</title>
+  <title>如何用使用 Vivado + VSCode 进行 FPGA 开发 - 闲尘悟语</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello World"></span>
+            <span id="subtitle" data-typed-text="如何用使用 Vivado + VSCode 进行 FPGA 开发"></span>
           
         </div>
 
@@ -211,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-22 17:50" pubdate>
-          2024年7月22日 下午
+        <time datetime="2024-07-27 11:28" pubdate>
+          2024年7月27日 上午
         </time>
       </span>
     
@@ -223,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          18 字
+          918 字
         
       </span>
     
@@ -234,7 +236,7 @@
         
         
         
-          1 分钟
+          8 分钟
         
       </span>
     
@@ -271,25 +273,53 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Hello World</h1>
+            <h1 id="seo-header">如何用使用 Vivado + VSCode 进行 FPGA 开发</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+                <h1 id="如何用使用-Vivado-VSCode-进行-FPGA-开发"><a href="#如何用使用-Vivado-VSCode-进行-FPGA-开发" class="headerlink" title="如何用使用 Vivado + VSCode 进行 FPGA 开发"></a>如何用使用 Vivado + VSCode 进行 FPGA 开发</h1><h2 id="1-安装-Vivado-和-VSCode"><a href="#1-安装-Vivado-和-VSCode" class="headerlink" title="1. 安装 Vivado 和 VSCode"></a>1. 安装 Vivado 和 VSCode</h2><p>过程略。</p>
+<h2 id="2-将-VSCode-设置为-Vivado-的默认代码编辑器。"><a href="#2-将-VSCode-设置为-Vivado-的默认代码编辑器。" class="headerlink" title="2. 将 VSCode 设置为 Vivado 的默认代码编辑器。"></a>2. 将 VSCode 设置为 Vivado 的默认代码编辑器。</h2><p>打开 Vivado，进入 Settings 页面。</p>
+<p>![image-20240719211431395](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719211431395.png)</p>
+<p>Text Editor  –&gt;  Current Editor 的下拉列表 –&gt; 选择 Custom Editor… –&gt; …</p>
+<p>![image-20240719214011233](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719214011233.png)</p>
+<p>在 Editor 中输入 <code>cmd /S /k &quot;code -g [file name]:[line number]&quot;</code>，点击 OK。</p>
+<p>![image-20240719213322147](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719213322147.png)</p>
+<p>随便打开一个工程，双击需要打开的文件。</p>
+<p>![image-20240719214758564](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719214758564.png)</p>
+<p>成功在 VSCode 中打开文件。</p>
+<p>![image-20240719215059169](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719215059169.png)</p>
+<h2 id="3-安装-Verilog-SystemVerilog-插件，并拓展其功能。"><a href="#3-安装-Verilog-SystemVerilog-插件，并拓展其功能。" class="headerlink" title="3. 安装 Verilog &#x2F; SystemVerilog 插件，并拓展其功能。"></a>3. 安装 Verilog &#x2F; SystemVerilog 插件，并拓展其功能。</h2><h3 id="3-1-安装插件"><a href="#3-1-安装插件" class="headerlink" title="3.1 安装插件"></a>3.1 安装插件</h3><p>打开 VSCode –&gt; Extensions –&gt; 搜索 verilog –&gt; 选择红框标记的这个插件，我这里是已经装好的状态，未安装状态下会像其他插件一样，有个 Install 的按钮，点一下即可安装。</p>
+<p>![image-20240719220041202](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719220041202.png)</p>
+<h3 id="3-2-代码实时纠错："><a href="#3-2-代码实时纠错：" class="headerlink" title="3.2 代码实时纠错："></a>3.2 代码实时纠错：</h3><p>快捷键 <code>Win + I</code> 打开 Windows 设置 –&gt; 搜索 “环境变量” –&gt; 编辑系统环境变量。</p>
+<p>![image-20240719220748758](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719220748758.png)</p>
+<p>点击 “环境变量”。</p>
+<p>![image-20240719221007832](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719221007832.png)</p>
+<p>选中系统变量中的 Path，点击编辑。</p>
+<p>![image-20240719221248653](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719221248653.png)</p>
+<p>添加 Vivado 的安装路径。</p>
+<p>![image-20240719221340150](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719221340150.png)</p>
+<p>由于本人暂且没有完全搞懂 “系统变量” 和 “用户变量” 的本质区别，所以在 “用户变量” 中执行了与上一步相同的操作。</p>
+<p>![image-20240719221630140](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719221630140.png)</p>
+<p>回到 VSCode，使用快捷键 <code>Ctrl + ,</code> 打开 Settings –&gt; 搜索 verilog –&gt; 在 “Verilog &gt; Linting: Linter” 中选择 xvlog。</p>
+<p>![image-20240719222106335](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719222106335.png)</p>
+<p>完成！</p>
+<h3 id="3-定义跳转："><a href="#3-定义跳转：" class="headerlink" title="3. 定义跳转："></a>3. 定义跳转：</h3><p>下载 ctags: <a target="_blank" rel="noopener" href="https://github.com/universal-ctags/ctags-win32/releases">universal-ctags &#x2F; ctags-win32</a></p>
+<p>解压在电脑上，目录随意，不过按照习惯建议路径中不要有中文。下图是我放的位置。</p>
+<p>![image-20240719223422015](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719223422015.png)</p>
+<p>将 ctags 的目录添加到环境变量中（此处不在赘述，详细方法见上文中 [3.2 代码实时纠错](# 3.2 代码实时纠错：) 部分。结果如下：</p>
+<p>![image-20240719224407100](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719224407100.png)</p>
+<p>![image-20240719224420031](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719224420031.png)</p>
+<p>回到 VSCode，使用快捷键 <code>Ctrl + ,</code> 打开 Settings –&gt; 搜索 verilog –&gt; 在 “Verilog &gt; Ctags: Path” 中填写 <code>ctags</code>。</p>
+<p>完成！</p>
+<p><em><strong>注意</strong></em>：要使用 ctags 的定义跳转的功能，一定要先创建工作区！！！</p>
+<p>![image-20240719225338702](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719225338702.png)</p>
+<p>![image-20240719225236186](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719225236186.png)</p>
+<p>![image-20240719225433783](..&#x2F;assets&#x2F;如何用使用 Vivado + VSCode 进行 FPGA 开发&#x2F;image-20240719225433783.png)</p>
+<h2 id="4-待补充"><a href="#4-待补充" class="headerlink" title="4. 待补充"></a>4. 待补充</h2><h2 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h2><h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv34148140/?jump_opus=1">VScode配合Vivado的FPGA开发环境设置的教程</a>：修改 Vivado 默认编辑器的步骤需要给 Custom Editor Definition 里的 Editor 输入一串代码，这个博客中的代码是不可用的，按照我自己写的来。
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://support.xilinx.com/s/question/0D52E00006hpllISAQ/i-cant-get-vivado-to-open-vscode-as-a-custom-editor?language=en_US&t=1680960017474">Vivado 打不开 VSCode 如何解决</a>：可以解决参考资料 [1] 中的问题。
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/622356787">FPGA终于可以愉快地写代码了！Vivado和Visual Studio Code黄金搭档</a>
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span><a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
@@ -297,6 +327,38 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Vivado-%E9%85%8D%E7%BD%AE/" class="category-chain-item">Vivado 配置</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Vivado/" class="print-no-link">#Vivado</a>
+      
+        <a href="/tags/FPGA/" class="print-no-link">#FPGA</a>
+      
+        <a href="/tags/VSCode/" class="print-no-link">#VSCode</a>
+      
+    </div>
   
 </div>
 
@@ -306,8 +368,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>https://morningmist42672.github.io/2024/07/22/hello-world/</div>
+      <div>如何用使用 Vivado + VSCode 进行 FPGA 开发</div>
+      <div>https://morningmist42672.github.io/2024/07/27/如何用使用 Vivado + VSCode 进行 FPGA 开发/</div>
     </div>
     <div class="license-meta">
       
@@ -319,7 +381,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年7月22日</div>
+          <div>2024年7月27日</div>
         </div>
       
       
@@ -351,15 +413,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07/27/%E5%A6%82%E4%BD%95%E7%94%A8%E4%BD%BF%E7%94%A8%20Vivado%20+%20VSCode%20%E8%BF%9B%E8%A1%8C%20FPGA%20%E5%BC%80%E5%8F%91/" title="如何用使用 Vivado + VSCode 进行 FPGA 开发">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">如何用使用 Vivado + VSCode 进行 FPGA 开发</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2024/07/22/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
