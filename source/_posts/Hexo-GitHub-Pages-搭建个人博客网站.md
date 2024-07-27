@@ -21,9 +21,9 @@ categories:
 
 ![image-20240722103120872](../assets/Hexo-GitHub-Pages-搭建个人博客网站/image-20240722103120872.png)
 
-### 1.2 安装过程略
+### 1.2 安装过程
 
-基本一路 next 即可。本人习惯性将软件安装目录换到 D 盘；Select Components 中，Windows Explorer integration 一定要勾选。
+略，基本一路 next 即可。本人习惯性将软件安装目录换到 D 盘；Select Components 中，Windows Explorer integration 一定要勾选。
 
 ![image-20240722103326503](../assets/Hexo-GitHub-Pages-搭建个人博客网站/image-20240722103326503.png)
 
@@ -38,9 +38,9 @@ categories:
 
 ## 2. 安装 Node.js
 
-### 2.1 [下载 Node.js 安装包](https://nodejs.org/en)
+### 2.1 下载 Node.js 安装包
 
-直接下载安装 LST (long-term support) 版本，安装的时候一直 next 即可。
+直接下载安装 [LST (long-term support)](https://nodejs.org/en) 版本，安装的时候一直 next 即可。
 
 ### 2.2 测试 Node.js 是否安装成功
 
