@@ -1,6 +1,7 @@
 ---
 title: Hexo + GitHub Pages 搭建个人博客网站
 date: 2024-07-27 12:49:13
+updated: 2024-07-28 17:26:58
 tags: 
   - Git 
   - Node.js
@@ -329,20 +330,146 @@ hexo d -g
 
 剩下的配置还有很多，但 Fluid 的手册里已经阐述的非常详细了，这里不再赘述，详见 [Hexo Fluid 用户手册](https://hexo.fluid-dev.com/docs/)[^5]。
 
-### 6.2 不让搜索引擎搜索到你的博客（存疑，ChatGPT 提供的方法，不知真假；两种方法用一种就可以，当然都用更保险）
+### 6.2 多端同步博客
 
-#### 6.2.1 使用 robots.txt 文件禁止搜索引擎抓取
+我遇到了这样的情况：我的博客环境搭建在实验室的主机上，但我有时候想在自己的笔记本上修改博客，这个时候就涉及到了多端同步的问题。
+
+在参考了一些资料[^6][^7]后，我觉得可以这么做：
+
+打开 Hexo 的那个仓库，本来应该只有 master 这个分支的，这个时候建立一个 hexo 分支，并把 hexo 分支设置为默认分支。
+
+![hexo 为默认分支](../assets/Hexo-GitHub-Pages-搭建个人博客网站/image-20240728160354019.png)
+
+假设实验室的主机是 A，我的笔记本是 B。
+
+先在 A 进行操作。首先新建一个文件夹 `temp`，在这个目录下打开 Git Bash，输入：
+```bash
+git clone git@github.com:username/username.github.io.git
+```
+
+clone成功后，删掉除去 `.git` 之外的所有文件夹。然后把 `Hexo` 目录下所有文件复制到 `temp` 文件夹，删除 `.deploy_git`。
+
+新建或者修改 `.gitignore` 文件：
+```.gitignore
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+```
+
+***注意：***
+
+> 如果你在`themes`文件夹下 clone 过其它主题文件，把其中的 `.git`文件夹删除掉[^6]
+
+但我是用 `npm` 指令安装的主题，所以不存在这个问题。
+
+然后上传文件到 hexo 分支：
+
+```bash
+git add .
+git commit -m "backup blog source file0305"
+git push 
+```
+
+A 上的配置操作暂时结束。
+
+接着在 B 上操作。首先 安装 Git，Node.js， Hexo 这些，还有一些基础设置比如设置 Git 的全局用户名和邮箱，这些全部搞好。
+
+然后进入这台电脑的 `Hexo` 文件夹，clone 仓库：
+
+```bash
+git clone git@github.com:username/username.github.io.git
+```
+
+clone 成功后，在 `Hexo` 目录下安装依赖包：
+
+```bash
+npm install
+```
+
+B 上的操作结束。
+
+现在就可以在 B 上写博客了，写完后记得同步到仓库然后再更新博客网站：
+
+```bash
+# 多台终端写博客，记得先和 GitHub 端同步，当然如果是第一次刚刚配置完就不用做这一步，但只要别的终端更新过博客，就必须要做这一步
+git pull
+
+# 同步到仓库
+git add .
+git commit -m "..." # 可以写日期或者其他的
+git push 
+
+# 更新博客网站
+hexo clean
+hexo d -g
+```
+
+再回到 A，此时还要把 A 上本来的 `Hexo` 文件夹关联到仓库的 hexo 分支。但这里我做的稀里糊涂的（主要还是对 Git 的用法不熟），所以直接放步骤了。
+
+进入 `Hexo` 文件夹，打开 Git Bash，输入如下命令：
+
+```bash
+git init
+git remote add origin git@github.com:username/username.github.io.git
+git clone git@github.com:morningmist42672/morningmist42672.github.io.git
+```
+
+这个时候 `Hexo` 目录底下会有一个 `morningmist42672.github.io` 文件夹，用这个文件夹里的全部文件覆盖 `Hexo` 文件夹里的同名文件。
+
+然后回到 Git Bash，输入以下命令：
+
+```bash
+git checkout hexo # 如果已经在 hexo 分支下就不用输入这个命令，但一般情况下应该都不在
+
+# 同步到仓库
+git add .
+git commit -m "..." # 可以写日期或者其他的
+git push 
+```
+
+然后以后不管是在 A 还是在 B，亦或是以后还有 C，反正都是先把仓库的最新版本同步到本地，然后写博客，然后再上传到仓库，最后再发布博客。发布放在最后是一个好习惯，如果先发布博客，但发布后因为电脑突然出问题或者什么别的原因（概率极低，但还是有概率）导致没有上传仓库，那么最新版本的 `.md` 文件将丢失。想上传仓库则绝对不会有这个问题。
+
+### 6.3 不让搜索引擎搜索到你的博客
+
+***注意：存疑，ChatGPT 提供的方法，不知真假；两种方法用一种就可以，当然都用更保险。***
+
+#### 6.3.1 使用 robots.txt 文件禁止搜索引擎抓取
 
 进入 `Hexo/source` 路径，创建 `robots.txt` 文件，填入一下内容：
 
-```
+```plaintext
 User-agent: *
 Disallow: /
 ```
 
-#### 6.2.2 在页面中添加noindex元标签
+#### 6.3.2 在页面中添加noindex元标签
 
+***注意：我使用了 git 进行 Hexo 的多端同步（详见 [6.2 多端同步博客](# 6.2 多端同步博客)）,使用这种方法进行的修改，是无法被 git 同步的（因为修改的是主题文件，使用 `npm` 安装的主题，包会放在 `Hexo/node_modules` 下，这个目录是不会同步的），所以每在一台新电脑上创建一个 Hexo 终端，就要重新做一次这个操作，切记。***
 
+进入 `Hexo/node_modules/你的主题/layout/_partial`，打开 `head.ejs` 文件，在 `<head>` 部分添加以下元标签：
+```html
+<meta name="robots" content="noindex, nofollow">
+```
+
+~~但很奇怪，我使用的 butterfly 主题并没有 `head.ejs` 文件，问了一下 ChatGPT，他让我这么操作：进入 `Hexo/node_modules/hexo-theme-butterfly/layout/includes`，打开 `head.pug` 文件，修改以下内容：~~这么做不行，`hexo g` 时会报错，暂时放弃这一步吧。
+
+```pug
+meta(charset='UTF-8')
+meta(http-equiv="X-UA-Compatible" content="IE=edge")
+meta(name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover")
+meta(name="robots" content="noindex, nofollow")  // 添加这一行
+title= tabTitle
+meta(name="author" content=pageAuthor)
+meta(name="copyright" content=pageCopyright)
+meta(name ="format-detection" content="telephone=no")
+meta(name="theme-color" content=themeColor)
+```
+
+完成！
 
 ## 参考资料
 
@@ -351,3 +478,5 @@ Disallow: /
 [^3]:[Hexo教程，看这一篇就够了- How to系列](https://blog.csdn.net/cat_bayi/article/details/128725230)：看这篇博客学了更换主题和一些 Hexo 的基本操作，可以对照着[^1]一起看。
 [^4]:[hexo-theme-fluid](https://github.com/fluid-dev/hexo-theme-fluid)：Fluid 的 GitHub 官网。
 [^5]:[Hexo Fluid 用户手册](https://hexo.fluid-dev.com/docs/)：Hexo Fluid 的官方用户手册，对着这个可以完成 Fluid 主题的基本配置。
+[^6]:[Hexo搭建博客的多终端同步问题](https://zhuanlan.zhihu.com/p/476603074)：
+[^7]:[使用hexo，如果换了电脑怎么更新博客？](https://www.zhihu.com/question/21193762)：
