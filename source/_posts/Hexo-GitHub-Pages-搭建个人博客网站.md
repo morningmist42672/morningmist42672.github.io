@@ -327,15 +327,15 @@ hexo d -g # 生成静态页面，并发布至远程仓库
 
 ### 6.1 更换主题
 
-这里我选择了 [Fluid](https://github.com/fluid-dev/hexo-theme-fluid?tab=readme-ov-file) 主题。进入 `Hexo` 文件夹，打开 Git Bash，运行下面的命令：
+这里我选择了 [hexo-theme-butterfly](https://github.com/jerryc127/hexo-theme-butterfly) 主题 [^4]。进入 `Hexo` 文件夹，打开 Git Bash，运行下面的命令：
 
 ```bash
-npm install --save hexo-theme-fluid
+npm install hexo-theme-butterfly
 ```
 
-在 `Hexo` 文件夹里创建 `_config.fluid.yml` 文件，然后将 [_config.yml](https://github.com/fluid-dev/hexo-theme-fluid/blob/master/_config.yml) 里的内容复制进去。
+在 `Hexo` 文件夹里创建 `_config.butterfly.yml` 文件，然后将 `Hexo/node_modules/hexo-theme-butterfly_config.yml` 里的内容复制进去。
 
-打开 `_config.yml` 文件，修改 `theme` 为 `theme: fluid`，修改 `language` 为 `language: zh-CN`。
+打开 `_config.yml` 文件，修改 `theme` 为 `theme: butterfly`，修改 `language` 为 `language: zh-CN`。
 
 在 Git Bash 中进入 `Hexo` 文件夹，运行下面的命令：
 
@@ -346,13 +346,13 @@ hexo d -g
 
 进入博客的页面，发现主题已经改变（可能有一段时间的延迟）。
 
-剩下的配置还有很多，但 Fluid 的手册里已经阐述的非常详细了，这里不再赘述，详见 [Hexo Fluid 用户手册](https://hexo.fluid-dev.com/docs/)[^5]。
+剩下的配置还有很多，但 Fluid 的手册里已经阐述的非常详细了，这里不再赘述，详见 [Butterfly 主页](https://butterfly.js.org/) [^5]。
 
 ### 6.2 多端同步博客
 
 我遇到了这样的情况：我的博客环境搭建在实验室的主机上，但我有时候想在自己的笔记本上修改博客，这个时候就涉及到了多端同步的问题。
 
-在参考了一些资料[^6][^7]后，我觉得可以这么做：
+在参考了一些资料 [^6][^7]后，我觉得可以这么做：
 
 打开 Hexo 的那个仓库，本来应该只有 master 这个分支的，这个时候建立一个 hexo 分支，并把 hexo 分支设置为默认分支。
 
@@ -380,7 +380,7 @@ public/
 
 ***注意：***
 
-> 如果你在`themes`文件夹下 clone 过其它主题文件，把其中的 `.git`文件夹删除掉[^6]
+> 如果你在`themes`文件夹下 clone 过其它主题文件，把其中的 `.git`文件夹删除掉 [^6]
 
 但我是用 `npm` 指令安装的主题，所以不存在这个问题。
 
@@ -496,7 +496,7 @@ meta(name="theme-color" content=themeColor)
 [^1]:[【2024】从零开始用Hexo+GitHub Pages搭建个人网站（保姆级）](https://zhuanlan.zhihu.com/p/688561305)：搭建过程主要来自于这篇博客。
 [^2]:[解决npm安装Hexo时出现的'bash: hexo: command not found'问题](https://cloud.baidu.com/article/3284918)：解决了 bash: hexo: command not found 的报错。
 [^3]:[Hexo教程，看这一篇就够了- How to系列](https://blog.csdn.net/cat_bayi/article/details/128725230)：看这篇博客学了更换主题和一些 Hexo 的基本操作，可以对照着[^1]一起看。
-[^4]:[hexo-theme-fluid](https://github.com/fluid-dev/hexo-theme-fluid)：Fluid 的 GitHub 官网。
-[^5]:[Hexo Fluid 用户手册](https://hexo.fluid-dev.com/docs/)：Hexo Fluid 的官方用户手册，对着这个可以完成 Fluid 主题的基本配置。
+[^4]:[hexo-theme-butterfly](https://github.com/jerryc127/hexo-theme-butterfly?tab=readme-ov-file#hexo-theme-butterfly)：Butterfly 的 GitHub 官网。
+[^5]:[Butterfly 主页](https://butterfly.js.org/)：hexo-theme-butterfly 的官方网站，对着这个可以完成 Butterfly 主题的基本配置。
 [^6]:[Hexo搭建博客的多终端同步问题](https://zhuanlan.zhihu.com/p/476603074)：
 [^7]:[使用hexo，如果换了电脑怎么更新博客？](https://www.zhihu.com/question/21193762)：

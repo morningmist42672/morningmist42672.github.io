@@ -35,9 +35,14 @@ code_word_wrap: false
 social:
   # fab fa-github: https://github.com/xxxxx || Github || '#24292e'
   # fas fa-envelope: mailto:xxxxxx@gmail.com || Email || '#4a7dbe'
-  fab fa-bilibili: https://space.bilibili.com/44263239 || bilibili || '#74C0FC'
-  iconfont icon-douban: https://www.douban.com/people/132568088/ || 豆瓣 || '#2e963d'
-  fab fa-zhihu: https://www.zhihu.com/people/zuo-ri-zhong-xian-17 || 知乎 || '#1772f6'
+  # fab fa-bilibili: https://space.bilibili.com/44263239 || bilibili || '#74C0FC'
+  # iconfont icon-douban: https://www.douban.com/people/132568088/ || 豆瓣 || '#2e963d'
+  # fab fa-zhihu: https://www.zhihu.com/people/zuo-ri-zhong-xian-17 || 知乎 || '#1772f6'
+  iconfont icon-douban: https://www.douban.com/people/132568088/ || 豆瓣
+  iconfont icon-zhihu: https://www.zhihu.com/people/zuo-ri-zhong-xian-17 || 知乎
+  iconfont icon-bilibili: https://space.bilibili.com/44263239 || bilibili
+  iconfont icon-steam_icon: https://steamcommunity.com/id/morningmist42672/ || Steam
+  iconfont icon-xiaohongshu: https://www.xiaohongshu.com/user/profile/649104f2000000002a037162 || 小红书
 
 # Image (圖片設置)
 # --------------------------------------
@@ -922,7 +927,7 @@ css_prefix: true
 inject:
   head:
     # - <link rel="stylesheet" href="/xxx.css">
-    - <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4635267_hgyh6zu97r7.css">
+    - <link rel="stylesheet" href="/css/iconfont.css">
   bottom:
     # - <script src="xxxx"></script>
 
