@@ -38,11 +38,11 @@ social:
   # fab fa-bilibili: https://space.bilibili.com/44263239 || bilibili || '#74C0FC'
   # iconfont icon-douban: https://www.douban.com/people/132568088/ || 豆瓣 || '#2e963d'
   # fab fa-zhihu: https://www.zhihu.com/people/zuo-ri-zhong-xian-17 || 知乎 || '#1772f6'
-  iconfont icon-douban: https://www.douban.com/people/132568088/ || 豆瓣
-  iconfont icon-zhihu: https://www.zhihu.com/people/zuo-ri-zhong-xian-17 || 知乎
-  iconfont icon-bilibili: https://space.bilibili.com/44263239 || bilibili
-  iconfont icon-steam_icon: https://steamcommunity.com/id/morningmist42672/ || Steam
-  iconfont icon-xiaohongshu: https://www.xiaohongshu.com/user/profile/649104f2000000002a037162 || 小红书
+  iconfont icon-douban: https://www.douban.com/people/132568088/ || 豆瓣 || '#248c34'
+  iconfont icon-zhihu: https://www.zhihu.com/people/zuo-ri-zhong-xian-17 || 知乎 || '#0e87ea'
+  iconfont icon-bilibili: https://space.bilibili.com/44263239 || bilibili || '#24b4e4'
+  iconfont icon-steam_icon: https://steamcommunity.com/id/morningmist42672/ || Steam || '#004986'
+  iconfont icon-xiaohongshu: https://www.xiaohongshu.com/user/profile/649104f2000000002a037162 || 小红书 || '#fc0404'
 
 # Image (圖片設置)
 # --------------------------------------
@@ -927,7 +927,7 @@ css_prefix: true
 inject:
   head:
     # - <link rel="stylesheet" href="/xxx.css">
-    - <link rel="stylesheet" href="/css/iconfont.css">
+    - <link rel="stylesheet" href="/css/iconfont.css" media="defer" onload="this.media='all'">
   bottom:
     # - <script src="xxxx"></script>
 
