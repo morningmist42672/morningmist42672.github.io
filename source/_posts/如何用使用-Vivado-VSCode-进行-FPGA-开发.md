@@ -9,10 +9,25 @@ categories:
   - Vivado 配置
 ---
 
+## 0. 系统说明及软硬件平台
+
+操作系统：Windows 10 22H2
+
+软件版本：
+
+- Vivado 2021.2
+- VSCode 1.91.1
+
+
+
 ## 1. 安装 Vivado 和 VSCode
+
 过程略。
 
+
+
 ## 2. 将 VSCode 设置为 Vivado 的默认代码编辑器。
+
 打开 Vivado，进入 Settings 页面。
 
 ![image-20240719211431395](../assets/如何用使用-Vivado-VSCode-进行-FPGA-开发/image-20240719211431395.png)
@@ -32,6 +47,8 @@ Text Editor  -->  Current Editor 的下拉列表 --> 选择 Custom Editor... -->
 成功在 VSCode 中打开文件。
 
 ![image-20240719215059169](../assets/如何用使用-Vivado-VSCode-进行-FPGA-开发/image-20240719215059169.png)
+
+
 
 ## 3. 安装 Verilog / SystemVerilog 插件，并拓展其功能。
 
@@ -68,7 +85,7 @@ Text Editor  -->  Current Editor 的下拉列表 --> 选择 Custom Editor... -->
 
 完成！
 
-### 3. 定义跳转：
+### 3.3 定义跳转：
 
 下载 ctags: [universal-ctags / ctags-win32](https://github.com/universal-ctags/ctags-win32/releases)
 
@@ -94,9 +111,9 @@ Text Editor  -->  Current Editor 的下拉列表 --> 选择 Custom Editor... -->
 
 ![image-20240719225433783](../assets/如何用使用-Vivado-VSCode-进行-FPGA-开发/image-20240719225433783.png)
 
-## 4. 待补充
 
-## 5.
+
+## 4. 待补充
 
 
 

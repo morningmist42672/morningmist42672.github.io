@@ -12,6 +12,15 @@ categories:
 
 ## 0. 系统说明及软硬件平台
 
+操作系统：Windows 10 22H2
+
+软件版本：
+
+- Git 2.45.2
+- Node.js 20.15.1
+- Hexo 7.3.0
+- Hexo theme butterfly 4.13.0
+
 
 
 ## 1. 安装 Git
@@ -35,6 +44,7 @@ categories:
 打开 Git Bash，输入 `git -v`，如果出现版本号说明配置成功。
 
 ![image-20240722152317668](../assets/Hexo-GitHub-Pages-搭建个人博客网站/image-20240722152317668.png)
+
 
 
 ## 2. 安装 Node.js
@@ -86,9 +96,13 @@ npm config get registry
 
 ![image-20240722151700715](../assets/Hexo-GitHub-Pages-搭建个人博客网站/image-20240722151700715.png)
 
+
+
 ## 3. 注册 GitHub 账号
 
 略。
+
+
 
 ## 4. 本地Hexo部署
 
@@ -199,6 +213,8 @@ hexo s
 
 在 Git Bash 中输入 `Ctrl + C` 关闭本地服务器。
 
+
+
 ## 5. 发布到 GitHub Pages
 
 ### 5.1 本地 SSH 密钥
@@ -304,6 +320,8 @@ hexo d -g # 生成静态页面，并发布至远程仓库
 ![image-20240723221345215](../assets/Hexo-GitHub-Pages-搭建个人博客网站/image-20240723221345215.png)
 
 此时打开 `https://username.github.io` 就会发现博客已经部署好，这里就不放展示图啦！
+
+
 
 ## 6. 个性化配置
 
@@ -470,6 +488,8 @@ meta(name="theme-color" content=themeColor)
 ```
 
 完成！
+
+
 
 ## 参考资料
 
