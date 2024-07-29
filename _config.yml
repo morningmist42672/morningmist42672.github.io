@@ -4,7 +4,7 @@
 
 # Site
 title: 闲尘悟语
-subtitle: '空空荡荡 嗡嗡作响'
+subtitle: '' #空空荡荡 嗡嗡作响
 description: '三尺微命 才疏学浅 穷且益坚 青云不坠'
 keywords: FPGA C Python
 author: 忱无 / morningmist
