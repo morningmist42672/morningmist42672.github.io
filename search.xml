@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Modelsim 操作手册</title>
+      <link href="/2024/08/30/Modelsim-%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/"/>
+      <url>/2024/08/30/Modelsim-%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="0-系统说明及软硬件平台"><a href="#0-系统说明及软硬件平台" class="headerlink" title="0. 系统说明及软硬件平台"></a>0. 系统说明及软硬件平台</h2><p>操作系统：Windows 10 22H2</p><p>软件版本：</p><ul><li>Modelsim SE-64 2020.4</li></ul><h2 id="1-Modelsim-常用操作"><a href="#1-Modelsim-常用操作" class="headerlink" title="1. Modelsim 常用操作"></a>1. Modelsim 常用操作</h2><h3 id="1-1-通过-do-文件添加波形"><a href="#1-1-通过-do-文件添加波形" class="headerlink" title="1.1 通过 .do 文件添加波形"></a>1.1 通过 .do 文件添加波形</h3><p>有时我们不得不退出 Modelsim，但这样下次再仿真时要重新添加波形，非常麻烦（特别是工程特别大的时候）。这个时候我们可以利用 .do 文件保存已经添加的波形信息并在下一次仿真时一键添加波形。</p><p>关闭 Modelsim 前，先 <code>Ctrl + S</code> 保存 .do 文件：</p><p><img src="/../assets/Modelsim-%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/image-20240830202142404.png" alt="保存 .do 文件"></p><p>然后下次打开 Modelsim 时，先建立仿真，然后添加波形时使用如下命令[^1]：</p><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">do wave.do</span><br></pre></td></tr></table></figure><p>这时波形就会自动添加到仿真界面中：<br><img src="/../assets/Modelsim-%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/image-20240830202610287.png" alt="成功添加波形"></p><h3 id="1-2-Zoom-工具"><a href="#1-2-Zoom-工具" class="headerlink" title="1.2 Zoom 工具"></a>1.2 Zoom 工具</h3><p>工具栏有 6 个 Zoom 工具，建议把它们的快捷键都记住。</p><p><img src="/../assets/Modelsim-%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/image-20240830204027400.png" alt="6 个 Zoom 工具"></p><p>Zoom In (I)：放大。</p><p>Zoom Out (O)：缩小</p><p>Zoom Full (F)：让整个仿真过程刚好填充满波形界面。</p><p>Zoom In on Active Cursor (C)：以你选中的 Cursor 为中心，每执行一次都放大一次。所以如果你想看某个 Cursor 附近的波形情况，可以狂按 C。</p><p>Zoom between Cursors：分别以两条 Cursor 为左边界和右边界，使这两个 Cursor 框住的波形充满界面。</p><p>Zoom Other Windows (M)：没用过，暂时不写。</p><h2 id="2-Modelsim-相关设置"><a href="#2-Modelsim-相关设置" class="headerlink" title="2. Modelsim 相关设置"></a>2. Modelsim 相关设置</h2><h3 id="2-1-修改时间轴单位"><a href="#2-1-修改时间轴单位" class="headerlink" title="2.1 修改时间轴单位"></a>2.1 修改时间轴单位</h3><p>现在已经把时间轴拉的很长了，但时间轴是以 ps 为单位的，所以非常不好观察时间。</p><p><img src="/../assets/Modelsim-%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/image-20240820154529635.png" alt="看着就恶心"></p><p>右键点击时间轴，选择下图中的选项：</p><p><img src="/../assets/Modelsim-%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/image-20240820154745437.png" alt="选择红框中的选项"></p><p>勾选如下选框（另：这个界面里还可以直接改时间轴的单位；这里还有其他的功能，比如用 2 个 Cursor 量波形的时候，可以选择以频率显示；其他功能可以自行探索）：</p><p><img src="/../assets/Modelsim-%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/image-20240820161016412.png" alt="勾选时间轴上的值加逗号"></p><p>现在显示的时候会加逗号：</p><p><img src="/../assets/Modelsim-%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/image-20240820161125903.png" alt="image-20240820161125903"></p><p>看起来舒服多了，后续可以探索一下有没有办法实现自动单位切换。</p><h3 id="2-2-让-Modelsim-的界面看着更加清晰"><a href="#2-2-让-Modelsim-的界面看着更加清晰" class="headerlink" title="2.2 让 Modelsim 的界面看着更加清晰"></a>2.2 让 Modelsim 的界面看着更加清晰</h3><p>看看 [1.1 修改时间轴单位](# 1.1 修改时间轴单位) 几张图里的仿真界面，看着真的很模糊，让后截图后看着就更糊了。这都是 2020 年的软件了，怎么还有一种上世纪的味道，Mentor Graphics（准确是应该是 Siemens）难道自己看着不膈应吗，还是说是我们的配置有问题？</p><p>其实确实应该是我们的配置有问题，下面来说说怎么让界面更清晰。</p><p>找到 Modelsim 的快捷方式：</p><p><img src="/../assets/Modelsim-%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/image-20240830195210057.png" alt="Modelsim 的快捷方式"></p><p>右键 –&gt; 属性 –&gt; 兼容性 –&gt; 更改高 DPI 设置 –&gt; 勾选“替代高 DPI 缩放行为”</p><p><img src="/../assets/Modelsim-%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/image-20240830195457075.png" alt="勾选“替代高 DPI 缩放行为”"></p><p>再次打开 Modelsim，发现清晰度高多了，吗？反正我自己在仿真的时候看着感觉清晰了不少，但不知道这个截图里看不看得出来。</p><p><img src="/../assets/Modelsim-%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/image-20240830200519789.png" alt="清晰度显著提升？"></p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[^1]:<a href="https://www.cnblogs.com/cqlc/p/14735009.html">modelsim do文件使用方法</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Modelsim </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Modelsim </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo 博客常用操作</title>
       <link href="/2024/08/26/Hexo-%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
       <url>/2024/08/26/Hexo-%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
@@ -13,7 +38,7 @@
       
       <categories>
           
-          <category> Hexo 博客搭建 </category>
+          <category> Hexo </category>
           
       </categories>
       
@@ -38,7 +63,7 @@
       
       <categories>
           
-          <category> Hexo 博客搭建 </category>
+          <category> Hexo </category>
           
       </categories>
       
@@ -58,21 +83,21 @@
       <link href="/2024/08/19/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/"/>
       <url>/2024/08/19/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/</url>
       
-        <content type="html"><![CDATA[<h2 id="0-系统说明及软硬件平台"><a href="#0-系统说明及软硬件平台" class="headerlink" title="0. 系统说明及软硬件平台"></a>0. 系统说明及软硬件平台</h2><p>操作系统：Windows 10 22H2</p><p>软件版本：</p><ul><li>Vivado 2021.2</li><li>Modelsim SE-64 2020.4</li></ul><h2 id="1-Modelsim-SE-64-2020-4-的安装"><a href="#1-Modelsim-SE-64-2020-4-的安装" class="headerlink" title="1. Modelsim SE-64 2020.4 的安装"></a>1. Modelsim SE-64 2020.4 的安装</h2><h2 id="2-Modelsim-SE-64-2020-4-与-Vivado-的关联"><a href="#2-Modelsim-SE-64-2020-4-与-Vivado-的关联" class="headerlink" title="2. Modelsim SE-64 2020.4 与 Vivado 的关联"></a>2. Modelsim SE-64 2020.4 与 Vivado 的关联</h2><p>打开 Vivado，开始编译仿真库。</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240819212600688.png" alt="编译仿真库"></p><p>修改编译库的路径，我是在 Modelsim 的安装路径底下新建了一个 <code>vivado_lib</code> 文件夹。修改编译库路径后直接 Compile（然后你需要经历漫长的等待，可能要 1 小时以上，所以建议晚上从实验室离开或者睡觉前执行这一步操作。当然这个操作不会影响你用电脑，所以你白天挂在那里干别的也行）。</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240820112334560.png" alt="修改编译库路径"></p><p>结束后可以看到编译结果的信息：</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240820134837112.png" alt="编译结果"></p><p>打开刚才编译好的编译库路径，找到 <code>modelsim.ini</code>，复制里面的 IP 核编译库路径（没截全，后面还有很多，全部复制下来就行了）：</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240822155339233.png" alt="IP 核编译库路径"></p><p>然后来到 Modelsim 的安装路径，找到这个文件夹底下的 <code>modelsim.ini</code> 文件，先取消这个文件的只读属性（不然就无法修改这个文件了），然后把刚才复制的 IP 核编译库路径加入到这个文件中（添加完成后记得再把这个文件修改回只读）：</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240822160330555.png" alt="加入到 Modelsim 安装目录下的 modelsim.ini 文件"></p><p>打开 Modelsim，可以看到，库已经成功添加：</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240822162029632.png" alt="库已成功添加"></p><p>然后打开Vivado的设置，修改 <code>Install Paths</code> 和 <code>Default Compiled Library Paths</code>：</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240822154607856.png" alt="image-20240822154607856"></p><p>对具体工程进行仿真时，记得将仿真器设置为 ModelSim。</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240820151952057.png" alt="将仿真器设置为 ModelSim"></p><p>然后，如果不出意外，就可以正常仿真了。如果出了意外呢？我的建议是再回去编译一遍仿真库。</p><h2 id="3-Modelsim-相关设置"><a href="#3-Modelsim-相关设置" class="headerlink" title="3. Modelsim 相关设置"></a>3. Modelsim 相关设置</h2><h3 id="3-1-修改时间轴单位"><a href="#3-1-修改时间轴单位" class="headerlink" title="3.1 修改时间轴单位"></a>3.1 修改时间轴单位</h3><p>现在已经把时间轴拉的很长了，但时间轴是以 ps 为单位的，所以非常不好观察时间。</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240820154529635.png" alt="看着就恶心"></p><p>右键点击时间轴，选择下图中的选项：</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240820154745437.png" alt="选择红框中的选项"></p><p>勾选如下选框（另：这个界面里还可以直接改时间轴的单位；这里还有其他的功能，比如用 2 个 Cursor 量波形的时候，可以选择以频率显示；其他功能可以自行探索）：</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240820161016412.png" alt="勾选时间轴上的值加逗号"></p><p>现在显示的时候会加逗号：</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240820161125903.png" alt="image-20240820161125903"></p><p>看起来舒服多了，后续可以探索一下有没有办法实现自动单位切换。</p><h3 id="3-2-待补充"><a href="#3-2-待补充" class="headerlink" title="3.2 待补充"></a>3.2 待补充</h3><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[^1]:<a href="https://zhuanlan.zhihu.com/p/702079056">Vivado 设置关联使用第三方仿真软件 Modelsim</a></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="0-系统说明及软硬件平台"><a href="#0-系统说明及软硬件平台" class="headerlink" title="0. 系统说明及软硬件平台"></a>0. 系统说明及软硬件平台</h2><p>操作系统：Windows 10 22H2</p><p>软件版本：</p><ul><li>Vivado 2021.2</li><li>Modelsim SE-64 2020.4</li></ul><h2 id="1-Modelsim-SE-64-2020-4-的安装"><a href="#1-Modelsim-SE-64-2020-4-的安装" class="headerlink" title="1. Modelsim SE-64 2020.4 的安装"></a>1. Modelsim SE-64 2020.4 的安装</h2><h2 id="2-Modelsim-SE-64-2020-4-与-Vivado-的关联"><a href="#2-Modelsim-SE-64-2020-4-与-Vivado-的关联" class="headerlink" title="2. Modelsim SE-64 2020.4 与 Vivado 的关联"></a>2. Modelsim SE-64 2020.4 与 Vivado 的关联</h2><p>打开 Vivado，开始编译仿真库。</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240819212600688.png" alt="编译仿真库"></p><p>修改编译库的路径，我是在 Modelsim 的安装路径底下新建了一个 <code>vivado_lib</code> 文件夹。修改编译库路径后直接 Compile（然后你需要经历漫长的等待，可能要 1 小时以上，所以建议晚上从实验室离开或者睡觉前执行这一步操作。当然这个操作不会影响你用电脑，所以你白天挂在那里干别的也行）。</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240820112334560.png" alt="修改编译库路径"></p><p>结束后可以看到编译结果的信息：</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240820134837112.png" alt="编译结果"></p><p>打开刚才编译好的编译库路径，找到 <code>modelsim.ini</code>，复制里面的 IP 核编译库路径（没截全，后面还有很多，全部复制下来就行了）：</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240822155339233.png" alt="IP 核编译库路径"></p><p>然后来到 Modelsim 的安装路径，找到这个文件夹底下的 <code>modelsim.ini</code> 文件，先取消这个文件的只读属性（不然就无法修改这个文件了），然后把刚才复制的 IP 核编译库路径加入到这个文件中（添加完成后记得再把这个文件修改回只读）：</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240822160330555.png" alt="加入到 Modelsim 安装目录下的 modelsim.ini 文件"></p><p>打开 Modelsim，可以看到，库已经成功添加：</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240822162029632.png" alt="库已成功添加"></p><p>然后打开Vivado的设置，修改 <code>Install Paths</code> 和 <code>Default Compiled Library Paths</code>：</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240822154607856.png" alt="image-20240822154607856"></p><p>对具体工程进行仿真时，记得将仿真器设置为 ModelSim。</p><p><img src="/../assets/Modelsim-SE-64-2020-4-%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%B8%8E-Vivado-%E7%9A%84%E5%85%B3%E8%81%94/image-20240820151952057.png" alt="将仿真器设置为 ModelSim"></p><p>然后，如果不出意外，就可以正常仿真了。如果出了意外呢？我的建议是再回去编译一遍仿真库。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[^1]:<a href="https://zhuanlan.zhihu.com/p/702079056">Vivado 设置关联使用第三方仿真软件 Modelsim</a></p>]]></content>
       
       
       <categories>
           
-          <category> Vivado 配置 </category>
+          <category> Vivado </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Vivado </tag>
-            
             <tag> Modelsim </tag>
+            
+            <tag> Vivado </tag>
             
         </tags>
       
@@ -85,12 +110,12 @@
       <link href="/2024/07/29/STM32CubeMX-%E6%9B%B4%E6%96%B0%E6%97%B6%E6%97%A0%E6%B3%95%E5%8B%BE%E9%80%89%E7%89%88%E6%9C%AC/"/>
       <url>/2024/07/29/STM32CubeMX-%E6%9B%B4%E6%96%B0%E6%97%B6%E6%97%A0%E6%B3%95%E5%8B%BE%E9%80%89%E7%89%88%E6%9C%AC/</url>
       
-        <content type="html"><![CDATA[<h2 id="0-系统说明及软硬件平台"><a href="#0-系统说明及软硬件平台" class="headerlink" title="0. 系统说明及软硬件平台"></a>0. 系统说明及软硬件平台</h2><p>操作系统：Windows 10 22H2</p><p>软件版本：</p><ul><li>旧的 STM32CubeMX 版本：Version 6.3.0</li><li>目标 STM32CubeMX 版本：Version 6.12.0</li></ul><h2 id="1-问题"><a href="#1-问题" class="headerlink" title="1. 问题"></a>1. 问题</h2><p>同事的 STM32CubeMX 的版本比我的高，导致我无法打开他的工程，于是准备升级我的 STM32CubeMX。</p><p>打开 STM32CubeMX，进入更新页面。</p><p><img src="/../assets/STM32CubeMX-%E6%9B%B4%E6%96%B0%E6%97%B6%E6%97%A0%E6%B3%95%E5%8B%BE%E9%80%89%E7%89%88%E6%9C%AC/image-20240729161859470.png" alt="从 STM32CubeMX 进入更新页面"></p><p>但发现这个复选框不能勾选：</p><p><img src="/../assets/STM32CubeMX-%E6%9B%B4%E6%96%B0%E6%97%B6%E6%97%A0%E6%B3%95%E5%8B%BE%E9%80%89%E7%89%88%E6%9C%AC/image-20240729160945975.png" alt="STM32CubeMX 更新页面复选框无法勾选"></p><h2 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2. 解决方案"></a>2. 解决方案</h2><p>其实这里明确说了，下载更新包是需要 <em><strong>管理员权限</strong></em> 的，所以直接以管理员身份运行 STM32CubeMX，然后就会发现这个复选框可以勾选了。</p><p><img src="/../assets/STM32CubeMX-%E6%9B%B4%E6%96%B0%E6%97%B6%E6%97%A0%E6%B3%95%E5%8B%BE%E9%80%89%E7%89%88%E6%9C%AC/image-20240729161430846.png" alt="STM32CubeMX 更新需要管理员权限"></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="0-系统说明及软硬件平台"><a href="#0-系统说明及软硬件平台" class="headerlink" title="0. 系统说明及软硬件平台"></a>0. 系统说明及软硬件平台</h2><p>操作系统：Windows 10 22H2</p><p>软件版本：</p><ul><li>旧的 STM32CubeMX 版本：Version 6.3.0</li><li>目标 STM32CubeMX 版本：Version 6.12.0</li></ul><h2 id="1-问题"><a href="#1-问题" class="headerlink" title="1. 问题"></a>1. 问题</h2><p>同事的 STM32CubeMX 的版本比我的高，导致我无法打开他的工程，于是准备升级我的 STM32CubeMX。</p><p>打开 STM32CubeMX，进入更新页面。</p><p><img src="/../assets/STM32CubeMX-%E6%9B%B4%E6%96%B0%E6%97%B6%E6%97%A0%E6%B3%95%E5%8B%BE%E9%80%89%E7%89%88%E6%9C%AC/image-20240729161859470.png" alt="从 STM32CubeMX 进入更新页面"></p><p>但发现这个复选框不能勾选：</p><p><img src="/../assets/STM32CubeMX-%E6%9B%B4%E6%96%B0%E6%97%B6%E6%97%A0%E6%B3%95%E5%8B%BE%E9%80%89%E7%89%88%E6%9C%AC/image-20240729160945975.png" alt="STM32CubeMX 更新页面复选框无法勾选"></p><h2 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2. 解决方案"></a>2. 解决方案</h2><p>其实这里明确说了，下载更新包是需要 <em><strong>管理员权限</strong></em> 的，所以直接以管理员身份运行 STM32CubeMX，然后就会发现这个复选框可以勾选了。</p><p><img src="/../assets/STM32CubeMX-%E6%9B%B4%E6%96%B0%E6%97%B6%E6%97%A0%E6%B3%95%E5%8B%BE%E9%80%89%E7%89%88%E6%9C%AC/image-20240729161430846.png" alt="STM32CubeMX 更新需要管理员权限"></p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>无</p>]]></content>
       
       
       <categories>
           
-          <category> STM32CubeMX 配置 </category>
+          <category> STM32CubeMX </category>
           
       </categories>
       
@@ -117,7 +142,7 @@
       
       <categories>
           
-          <category> Vivado 配置 </category>
+          <category> Vivado </category>
           
       </categories>
       
@@ -144,7 +169,7 @@
       
       <categories>
           
-          <category> Vivado 配置 </category>
+          <category> Vivado </category>
           
       </categories>
       
@@ -173,7 +198,7 @@
       
       <categories>
           
-          <category> Hexo 博客搭建 </category>
+          <category> Hexo </category>
           
       </categories>
       
